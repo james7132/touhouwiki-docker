@@ -1,5 +1,5 @@
 <?php
-require_once("/var/www/touhouwiki.net/htdocs/CommonSettings.php");
+require_once("/var/www/html/CommonSettings.php");
 $wgSitename         = "东方维基";
 $wgServer           = "//zh.touhouwiki.net";
 $wgLogo             = "$wgScriptPath/skins/common/images/chinalogo.png";

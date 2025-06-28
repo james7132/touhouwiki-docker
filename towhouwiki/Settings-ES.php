@@ -1,5 +1,5 @@
 <?php
-require_once("/var/www/touhouwiki.net/htdocs/CommonSettings.php");
+require_once("/var/www/html/CommonSettings.php");
 $wgSitename         = "Touhou Wiki";
 $wgLogo             = "$wgScriptPath/skins/common/images/eswiki-2.png";
 $wgServer           = "//es.touhouwiki.net";

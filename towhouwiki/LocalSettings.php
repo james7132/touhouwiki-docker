@@ -119,32 +119,32 @@ if($wgCommandLineMode) { // running maintenance scripts
 			break;
 
         	case "es.touhouwiki.net":
-                	require_once "Settings-ES.php";
-	                break;
+                require_once "Settings-ES.php";
+                break;
 
                 case "fr.touhouwiki.net":
-                        require_once "Settings-FR.php";
-                        break;
+                  require_once "Settings-FR.php";
+                  break;
 
                 case "it.touhouwiki.net":
-                        require_once "Settings-IT.php";
-                        break;
+                  require_once "Settings-IT.php";
+                  break;
 
                 case "jp.touhouwiki.net":
-                        require_once "Settings-JP.php";
-                        break;
+                  require_once "Settings-JP.php";
+                  break;
 
                 case "ko.touhouwiki.net":
                         require_once "Settings-KO.php";
                         break;
 
-		case "ms.touhouwiki.net":
-			require_once "Settings-MS.php";
-			break;
+                case "ms.touhouwiki.net":
+                  require_once "Settings-MS.php";
+                  break;
 
                 case "nl.touhouwiki.net":
                         require_once "Settings-NL.php";
-			break;
+                    break;
 
                 case "onsen.touhouwiki.net":
                         require_once "Settings-ONSEN.php";
