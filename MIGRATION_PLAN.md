@@ -23,6 +23,17 @@ MariaDB v10.11. The entire instance sits behind
 [CloudFlare](https://cloudflare.com) as a anti-DDoS solution and web application
 firewall.
 
+During a periodic update to v1.43.x, the Wikimedia provided ran into unexpected
+issues with the database during migration. This likely would require manual SQL
+scripting and a deep dive into the provided upgrade scripts to ensure the rest of
+the migration proceeds smoothly. This adds signifcant risk to the migration, for
+which, we, as Touhou Wiki SysOps, do not have many alternatives for other than
+backups and potentially long term downtime.
+
+This document exists to propose a migration path to ensure we can prop up a new
+instance of Touhou Wiki, provided backups without irreversible configuration
+changes and/or data loss along the way.
+
 ## Implementation
 The intent of this project is to convert the existing configuration to use
 [Docker](https://www.docker.com/) to ensure that the production state of the wiki
