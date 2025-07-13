@@ -1,5 +1,6 @@
 FROM mediawiki:1.39
 COPY *.php .
+COPY skins/common/images ./skins/common/images
 RUN set -eux; \
   # Install Extensions
 
