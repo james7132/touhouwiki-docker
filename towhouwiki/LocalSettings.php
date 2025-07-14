@@ -1,4 +1,18 @@
 <?php
+
+$touhouWikiEnv = getenv("TOUHOUWIKI_ENV");
+if(!$touhouWikiEnv) {
+  echo("No specified deployment environment. Defaulting to DEV. Please set the TOUHOUWIKI_ENV env var to use something else.");
+  $touhouWikiEnv = "DEV";
+}
+$touhouWikiEnv = strtouppper($touhouWikiEnv);
+
+if ($touhouWikiEnv === "PROD") {
+  $touhouWikiRootDomain = "touhouwiki.net";
+} else if ($touhouWikiEnv === "STAGING") {
+  $touhouWikiRootDomain = "touhouwikitest.net";
+}
+
 /* TODO: Integrate command-line and web modes cleanly. (non-vital) */
 if($wgCommandLineMode) { // running maintenance scripts
 	if(!defined('MW_PREFIX') && !defined('MW_DB')) { // no --wiki switch provided
@@ -100,90 +114,93 @@ if($wgCommandLineMode) { // running maintenance scripts
 			exit(-1);
 	}
 } else { // normal web usage
-	switch ($_SERVER["HTTP_HOST"])
-	{
-		case "cs.touhouwiki.net":
-			require_once "Settings-CS.php";
-			break;
+  if($touhouWikiEnv === "DEV") {
+      require_once "Settings-EN.php";
+  } else {
+    switch ($_SERVER["HTTP_HOST"]) {
+      case "cs.touhouwiki.net":
+        require_once "Settings-CS.php";
+        break;
 
-		case "da.touhouwiki.net":
-			require_once "Settings-DA.php";
-			break;
+      case "da.touhouwiki.net":
+        require_once "Settings-DA.php";
+        break;
 
-		case "de.touhouwiki.net":
-			require_once "Settings-DE.php";
-			break;
+      case "de.touhouwiki.net":
+        require_once "Settings-DE.php";
+        break;
 
-		case "en.touhouwiki.net":
-			require_once "Settings-EN.php";
-			break;
+      case "en.touhouwiki.net":
+        require_once "Settings-EN.php";
+        break;
 
-        	case "es.touhouwiki.net":
-                require_once "Settings-ES.php";
-                break;
+      case "es.touhouwiki.net":
+        require_once "Settings-ES.php";
+        break;
 
-                case "fr.touhouwiki.net":
-                  require_once "Settings-FR.php";
-                  break;
+      case "fr.touhouwiki.net":
+        require_once "Settings-FR.php";
+        break;
 
-                case "it.touhouwiki.net":
-                  require_once "Settings-IT.php";
-                  break;
+      case "it.touhouwiki.net":
+        require_once "Settings-IT.php";
+        break;
 
-                case "jp.touhouwiki.net":
-                  require_once "Settings-JP.php";
-                  break;
+      case "jp.touhouwiki.net":
+        require_once "Settings-JP.php";
+        break;
 
-                case "ko.touhouwiki.net":
-                        require_once "Settings-KO.php";
-                        break;
+      case "ko.touhouwiki.net":
+        require_once "Settings-KO.php";
+        break;
 
-                case "ms.touhouwiki.net":
-                  require_once "Settings-MS.php";
-                  break;
+      case "ms.touhouwiki.net":
+        require_once "Settings-MS.php";
+        break;
 
-                case "nl.touhouwiki.net":
-                        require_once "Settings-NL.php";
-                    break;
+      case "nl.touhouwiki.net":
+        require_once "Settings-NL.php";
+        break;
 
-                case "onsen.touhouwiki.net":
-                        require_once "Settings-ONSEN.php";
-                        break;
+      case "onsen.touhouwiki.net":
+        require_once "Settings-ONSEN.php";
+        break;
 
-        	case "pl.touhouwiki.net":
-                	require_once "Settings-PL.php";
-	                break;
+      case "pl.touhouwiki.net":
+        require_once "Settings-PL.php";
+        break;
 
-        	case "pt.touhouwiki.net":
-                	require_once "Settings-PT.php";
-	                break;
+      case "pt.touhouwiki.net":
+        require_once "Settings-PT.php";
+        break;
 
-                case "ru.touhouwiki.net":
-                        require_once "Settings-RU.php";
-                        break;
+      case "ru.touhouwiki.net":
+        require_once "Settings-RU.php";
+        break;
 
-                case "sv.touhouwiki.net":
-                        require_once "Settings-SV.php";
-                        break;
+      case "sv.touhouwiki.net":
+        require_once "Settings-SV.php";
+        break;
 
-                case "tr.touhouwiki.net":
-                        require_once "Settings-TR.php";
-                        break;
+      case "tr.touhouwiki.net":
+        require_once "Settings-TR.php";
+        break;
 
-                case "uk.touhouwiki.net":
-                        require_once "Settings-UK.php";
-                        break;
+      case "uk.touhouwiki.net":
+        require_once "Settings-UK.php";
+        break;
 
-                case "vi.touhouwiki.net":
-                        require_once "Settings-VI.php";
-                        break;
+      case "vi.touhouwiki.net":
+        require_once "Settings-VI.php";
+        break;
 
-	        case "zh.touhouwiki.net":
-        	        require_once "Settings-ZH.php";
-	                break;
+      case "zh.touhouwiki.net":
+        require_once "Settings-ZH.php";
+        break;
 
-		default:
-			echo "This wiki is not available. Check configuration.\n";
-			exit(0);
-	}
+      default:
+        echo "This wiki is not available. Check configuration.\n";
+        exit(0);
+    }
+  }
 }

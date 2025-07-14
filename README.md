@@ -16,7 +16,8 @@ To launch a local instance, run the following command:
 docker-compose up -d
 ```
 
-The test instance of the wiki is accessible at `localhost:8080`.
+The test instance of the wiki is then accessible at `localhost:8080`.
 
 For more complete end-to-end testing, a database dump from the production
-instance
+instance may be required. Please send a request to Touhou Wiki SysOps on the
+[Touhou Wiki Discord](https://discord.gg/jfSNFZG).

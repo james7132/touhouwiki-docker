@@ -2,6 +2,7 @@
 services:
   mediawiki:
     build: ./towhouwiki
+    container_name: touhouwiki
     restart: always
     ports:
       - 8080:80
@@ -12,6 +13,7 @@ services:
       - ./SecretSettings.php:/var/www/SecretSettings.php
   database:
     image: mariadb:10.11-jammy
+    container_name: database
     restart: always
     environment:
       MYSQL_DATABASE: touhouwiki
