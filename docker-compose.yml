@@ -8,9 +8,11 @@ services:
       - 8080:80
     links:
       - database
+    environment:
+      TOUHOUWIKI_ENV: DEV
     volumes:
       - images:/var/www/html/images
-      - ./SecretSettings.php:/var/www/SecretSettings.php
+      - ${PWD}/SecureSettings.php:/var/www/SecureSettings.php
   database:
     image: mariadb:10.11-jammy
     container_name: database

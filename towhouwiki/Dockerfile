@@ -54,6 +54,7 @@ RUN set -eux; \
   curl -L https://github.com/StarCitizenWiki/mediawiki-extensions-EmbedVideo/archive/refs/tags/v3.2.7.tar.gz -o EmbedVideo.tar.gz; \
   tar -xzf EmbedVideo.tar.gz -C extensions; \
   rm EmbedVideo.tar.gz; \
+  mv extensions/mediawiki-extensions-EmbedVideo-3.2.7 extensions/EmbedVideo; \
 
   ## InputBox is bundled with MediaWiki as of MW 1.21
 
@@ -64,6 +65,11 @@ RUN set -eux; \
   curl https://extdist.wmflabs.org/dist/extensions/LabeledSectionTransclusion-REL1_39-e561a6c.tar.gz -o LabeledSectionTransclusion.tar.gz; \
   tar -xzf LabeledSectionTransclusion.tar.gz -C extensions; \
   rm LabeledSectionTransclusion.tar.gz; \
+
+  ## MobileFrontend
+  curl https://extdist.wmflabs.org/dist/extensions/MobileFrontend-REL1_39-ee48083.tar.gz -o MobileFrontend.tar.gz; \
+  tar -xzf MobileFrontend.tar.gz -C extensions; \
+  rm MobileFrontend.tar.gz; \
 
   ## OpenGraphMeta
   curl https://extdist.wmflabs.org/dist/extensions/OpenGraphMeta-REL1_39-924deb2.tar.gz -o OpenGraphMeta.tar.gz; \
@@ -85,6 +91,7 @@ RUN set -eux; \
   curl -L https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue/archive/refs/tags/v2.1.0.tar.gz -o TabberNeue.tar.gz; \
   tar -xzf TabberNeue.tar.gz -C extensions; \
   rm TabberNeue.tar.gz; \
+  mv extensions/mediawiki-extensions-TabberNeue-2.1.0 extensions/TabberNeue; \
 
   ## TemplateData is bundled with MediaWiki as of MW 1.35
 

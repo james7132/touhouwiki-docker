@@ -17,8 +17,6 @@ wfLoadExtension( 'Interwiki' );
 $wgGroupPermissions['*']['interwiki'] = false;
 $wgGroupPermissions['sysop']['interwiki'] = true;
 wfLoadExtension( 'InputBox' );
-wfLoadExtension( 'LocalisationUpdate' );
-$wgLocalisationUpdateDirectory = "{$IP}/cache";
 wfLoadExtension( 'Cite' );
 wfLoadExtension( 'Renameuser' );
 wfLoadExtension( 'CodeEditor' );
@@ -150,7 +148,7 @@ wfLoadExtension( 'OpenGraphMeta' );
 wfLoadExtension( 'Description2' );
 
 ## JavascriptSlideshow
-wfLoadExtension( 'JavascriptSlideshow' );
+//wfLoadExtension( 'JavascriptSlideshow' );
 
 #$wgSpamRegex = "/".                        # The "/" is the opening wrapper
 #                "s-e-x|zoofilia|sexyongpin|grusskarte|geburtstagskarten|animalsex|".

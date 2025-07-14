@@ -2,10 +2,10 @@
 
 $touhouWikiEnv = getenv("TOUHOUWIKI_ENV");
 if(!$touhouWikiEnv) {
-  echo("No specified deployment environment. Defaulting to DEV. Please set the TOUHOUWIKI_ENV env var to use something else.");
+  echo("No specified deployment environment. Defaulting to DEV. Please set the TOUHOUWIKI_ENV env var to use something else.\n");
   $touhouWikiEnv = "DEV";
 }
-$touhouWikiEnv = strtouppper($touhouWikiEnv);
+$touhouWikiEnv = mb_convert_case($touhouWikiEnv, MB_CASE_UPPER, "UTF-8");
 
 if ($touhouWikiEnv === "PROD") {
   $touhouWikiRootDomain = "touhouwiki.net";
@@ -199,6 +199,8 @@ if($wgCommandLineMode) { // running maintenance scripts
         break;
 
       default:
+        echo $touhouWikiEnv;
+        echo "\n";
         echo "This wiki is not available. Check configuration.\n";
         exit(0);
     }

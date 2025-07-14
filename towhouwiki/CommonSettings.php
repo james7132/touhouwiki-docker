@@ -11,9 +11,8 @@ if( defined( 'MW_INSTALL_PATH' ) ) {
 	$wgBaseDirectory = dirname( __FILE__ );
 }
 
-
 ## Secure Settings
-include("$wgBaseDirectory/../SecureSettings.php");
+require_once("$wgBaseDirectory/../SecureSettings.php");
 
 ## Extensions, extensions, extensions!
 require_once( "$wgBaseDirectory/extensions/googleAnalytics/googleAnalytics.php" );
@@ -38,13 +37,6 @@ $wgVectorUseIconWatch = true;
 $wgEnableWriteAPI = true;
 $wgAllowUserJs = true;
 $wgVectorResponsive = true;
-
-
-wfLoadSkin( 'DarkVector' );
-$wgDarkVectorFeatures['editwarning']['global'] = false;
-$wgDarkVectorFeatures['editwarning']['user'] = true;
-$wgDarkVectorUseSimpleSearch = true;
-$wgDarkVectorUseIconWatch = true;
 
 wfLoadSkin( 'MinervaNeue' );
 
@@ -313,7 +305,7 @@ $wgAllowUserCss = true;
 
 
 # Extension loading and configuration
-require_once "/var/www/touhouwiki.net/htdocs/ExtensionSettings.php";
+require_once "/var/www/html/ExtensionSettings.php";
 
 #$wgShowExceptionDetails = true;
 #$wgShowExceptionDetails = true;
